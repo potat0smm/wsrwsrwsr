@@ -1,6 +1,8 @@
 package com.example.myapplication
 
+import android.media.Image
 import android.os.Bundle
+import android.provider.ContactsContract.CommonDataKinds.Im
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -16,8 +18,7 @@ class ViewPagerFragment : Fragment() {
 
     private var _binding:FragmentViewPagerBinding?=null
     private val binding get () = _binding!!
-
-    private lateinit var dots:Array<ImageView>
+    private lateinit var dots: Array<ImageView>
     private lateinit var dotsLayout:LinearLayout
     private lateinit var viewPager:ViewPager2
 
@@ -33,20 +34,20 @@ class ViewPagerFragment : Fragment() {
         // Inflate the layout for this fragment
         _binding = FragmentViewPagerBinding.inflate(layoutInflater,container,false)
 
-        viewPager = binding.viewPager
+       viewPager = binding.viewPager
         dotsLayout = binding.dotsLayout
 
         viewPager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback(){
             override fun onPageSelected(position: Int) {
-                dotsCurrent(position)
+                setCurrentDots(position)
             }
         })
-        setUoDots()
-        dotsCurrent(0)
+        setUpDots()
+        setCurrentDots(0)
 
         return binding.root
     }
-    private fun setUoDots(){
+    private fun setUpDots(){
         val onBoarding = listOf(FirstScreen(),SecondFragment(),ThirdFragment())
         val adapter = ViewPagerAdapter(requireActivity(),onBoarding)
         viewPager.adapter = adapter
@@ -62,10 +63,11 @@ class ViewPagerFragment : Fragment() {
             dotsLayout.addView(dots[i],params)
         }
     }
-    private fun dotsCurrent(position:Int){
+    private fun setCurrentDots(position:Int){
         for (i in dots.indices){
             dots[i].setImageDrawable(ContextCompat.getDrawable(requireContext().applicationContext,R.drawable.elips_zero))
         }
         dots[position].setImageDrawable(ContextCompat.getDrawable(requireContext().applicationContext,R.drawable.ellips))
     }
+    //sdfsdfsdf
 }
