@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/splashScreen">
+    <fragment
+        android:id="@+id/splashScreen"
+        android:name="com.example.myapplication.SplashScreen"
+        android:label="fragment_splash_screen"
+        tools:layout="@layout/fragment_splash_screen" >
+        <action
+            android:id="@+id/action_splashScreen_to_viewPagerFragment"
+            app:destination="@id/viewPagerFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/viewPagerFragment"
+        android:name="com.example.myapplication.ViewPagerFragment"
+        android:label="fragment_view_pager"
+        tools:layout="@layout/fragment_view_pager" >
+        <action
+            android:id="@+id/action_viewPagerFragment_to_emailFragment"
+            app:destination="@id/emailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/emailFragment"
+        android:name="com.example.myapplication.EmailFragment"
+        android:label="fragment_email"
+        tools:layout="@layout/fragment_email" >
+        <action
+            android:id="@+id/action_emailFragment_to_codeFragment"
+            app:destination="@id/codeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/codeFragment"
+        android:name="com.example.myapplication.CodeFragment"
+        android:label="fragment_code"
+        tools:layout="@layout/fragment_code" >
+        <action
+            android:id="@+id/action_codeFragment_to_passwordFragment"
+            app:destination="@id/passwordFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/passwordFragment"
+        android:name="com.example.myapplication.PasswordFragment"
+        android:label="fragment_password"
+        tools:layout="@layout/fragment_password" >
+        <action
+            android:id="@+id/action_passwordFragment_to_createUserr"
+            app:destination="@id/createUserr" />
+    </fragment>
+    <fragment
+        android:id="@+id/createUserr"
+        android:name="com.example.myapplication.CreateUserr"
+        android:label="fragment_create_userr"
+        tools:layout="@layout/fragment_create_userr" >
+        <action
+            android:id="@+id/action_createUserr_to_menuFragment"
+            app:destination="@id/menuFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/menuFragment"
+        android:name="com.example.myapplication.MenuFragment"
+        android:label="fragment_menu"
+        tools:layout="@layout/fragment_menu" />
+</navigation>
